@@ -1,0 +1,58 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: 'https://github.com/gdeedler/aram-machine'
+    openshift.io/generated-by: OpenShiftWebConsole
+  name: aram-machine
+  namespace: aram-machine
+  labels:
+    app: aram-machine
+    app.kubernetes.io/component: aram-machine
+    app.kubernetes.io/instance: aram-machine
+    app.kubernetes.io/name: aram-machine
+    app.kubernetes.io/part-of: aram-machine-frontend
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'aram-machine:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'nodejs:16-ubi8'
+      env:
+        - name: API_URL
+          value: 'http://aram-api.aram-machine.svc:3010'
+        - name: NEXT_PUBLIC_API_URL
+          value: 'https://aram-api-aram-machine.apps.okd.homie.estate'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/gdeedler/aram-machine'
+      ref: main
+    contextDir: /
+  triggers:
+    - type: Generic
+      generic:
+        secretReference:
+          name: aram-machine-generic-webhook-secret
+    - type: GitHub
+      github:
+        secretReference:
+          name: aram-machine-github-webhook-secret
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+  runPolicy: Serial

@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: aram-machine
+resources:
+- aram-machine-ns.yaml
+- aram-machine-is.yaml
+- aram-api-is.yaml
+- aram-api-bc.yaml
+- aram-machine-bc.yaml
+- aram-api-deployment.yaml
+- aram-api-route.yaml
+- aram-api-svc.yaml
+- aram-machine-deployment.yaml
+- aram-machine-route.yaml
+- aram-machine-svc.yaml
+- pgsql-svc.yaml

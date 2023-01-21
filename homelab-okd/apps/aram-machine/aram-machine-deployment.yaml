@@ -1,0 +1,65 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: 'false'
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: 'https://github.com/gdeedler/aram-machine'
+    deployment.kubernetes.io/revision: '13'
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"aram-machine:latest","namespace":"aram-machine"},"fieldPath":"spec.template.spec.containers[?(@.name==\"aram-machine\")].image","pause":"false"}]
+    openshift.io/generated-by: OpenShiftWebConsole
+  name: aram-machine
+  namespace: aram-machine
+  labels:
+    app: aram-machine
+    app.kubernetes.io/component: aram-machine
+    app.kubernetes.io/instance: aram-machine
+    app.kubernetes.io/name: aram-machine
+    app.kubernetes.io/part-of: aram-machine-frontend
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: aram-machine
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: aram-machine
+        deployment: aram-machine
+    spec:
+      containers:
+        - name: aram-machine
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/aram-machine/aram-machine@sha256:41bba1d37ea09cafc39aad1f116794b7db54cecfe7375f13d48f9afcaf724c47
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: API_URL
+              value: 'http://aram-api.aram-machine.svc:3010'
+            - name: NEXT_PUBLIC_API_URL
+              value: 'http://aram-api.aram-machine.svc:3010'
+          resources:
+            requests:
+              cpu: 10m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

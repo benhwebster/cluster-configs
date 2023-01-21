@@ -1,0 +1,26 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: aram-api
+  namespace: aram-machine
+  labels:
+    app: aram-api
+    app.kubernetes.io/component: aram-api
+    app.kubernetes.io/instance: aram-api
+    app.kubernetes.io/name: aram-api
+    app.kubernetes.io/part-of: aram-machine-backend
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: 'https://github.com/gdeedler/aram-api'
+    openshift.io/generated-by: OpenShiftWebConsole
+spec:
+  ports:
+    - name: 3010-tcp
+      protocol: TCP
+      port: 3010
+      targetPort: 3010
+  selector:
+    app: aram-api
+    deployment: aram-api

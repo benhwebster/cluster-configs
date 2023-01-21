@@ -1,0 +1,27 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: aram-machine
+  namespace: aram-machine
+  labels:
+    app: aram-machine
+    app.kubernetes.io/component: aram-machine
+    app.kubernetes.io/instance: aram-machine
+    app.kubernetes.io/name: aram-machine
+    app.kubernetes.io/part-of: aram-machine-frontend
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  host: aram-machine-aram-machine.apps.okd.homie.estate
+  to:
+    kind: Service
+    name: aram-machine
+    weight: 100
+  port:
+    targetPort: 3005-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

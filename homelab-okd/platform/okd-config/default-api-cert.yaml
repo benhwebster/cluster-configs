@@ -1,0 +1,28 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  labels:
+    issuer-env: prod
+    solver: cloudflare
+  name: okd-api-certificate
+  namespace: openshift-config
+spec:
+  dnsNames:
+    - api.okd.homie.estate
+  duration: 2160h0m0s
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+  renewBefore: 360h0m0s
+  secretName: okd-api-cert
+  subject:
+    organizations:
+      - Homies
+  usages:
+    - digital signature
+    - key encipherment

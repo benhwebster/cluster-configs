@@ -1,0 +1,26 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: aram-machine
+  namespace: aram-machine
+  labels:
+    app: aram-machine
+    app.kubernetes.io/component: aram-machine
+    app.kubernetes.io/instance: aram-machine
+    app.kubernetes.io/name: aram-machine
+    app.kubernetes.io/part-of: aram-machine-frontend
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+  annotations:
+    app.openshift.io/vcs-ref: main
+    app.openshift.io/vcs-uri: 'https://github.com/gdeedler/aram-machine'
+    openshift.io/generated-by: OpenShiftWebConsole
+spec:
+  ports:
+    - name: 3005-tcp
+      protocol: TCP
+      port: 3005
+      targetPort: 3005
+  selector:
+    app: aram-machine
+    deployment: aram-machine
