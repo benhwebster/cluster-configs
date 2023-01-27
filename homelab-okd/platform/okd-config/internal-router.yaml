@@ -1,0 +1,26 @@
+apiVersion: operator.openshift.io/v1
+kind: IngressController
+metadata:
+  name: internal
+  namespace: openshift-ingress-operator
+spec:
+  clientTLS:
+    clientCA:
+      name: ''
+    clientCertificatePolicy: ''
+  domain: apps.internal.okd.homie.estate
+  endpointPublishingStrategy:
+    type: HostNetwork
+    hostNetwork:
+      httpPort: 80
+      httpsPort: 443
+      statsPort: 1937
+  defaultCertificate:
+    name: internal-ingress-wildcard-cert
+  httpCompression: {}
+  httpEmptyRequestsPolicy: Respond
+  httpErrorCodePages:
+    name: ''
+  replicas: 1
+  tuningOptions: {}
+  unsupportedConfigOverrides: null

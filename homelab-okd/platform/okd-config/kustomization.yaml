@@ -4,4 +4,7 @@ resources:
 - apiserver.yaml
 - default-ingress-wildcard.yaml
 - default-api-cert.yaml
+- default-router.yaml
+- internal-router.yaml
+- internal-ingress-wildcard.yaml
 - oauth.yaml
