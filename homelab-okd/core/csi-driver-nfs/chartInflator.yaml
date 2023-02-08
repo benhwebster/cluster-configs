@@ -4,12 +4,12 @@ metadata:
   # The name here doesn't matter.
   name: ignore
 # The name of the chart to use
-chartName: csi-driver-nfs
+name: csi-driver-nfs
 # The name of the release
 releaseName: csi-driver-nfs
 # Path to a values.yaml
-values: values.yaml
+valuesFile: values.yaml
 # Namespace to deploy to
-releaseNamespace: csi-driver-nfs
+namespace: csi-driver-nfs
 # URL to the Repo
-chartRepoUrl:  https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+repo:  https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
