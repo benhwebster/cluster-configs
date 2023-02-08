@@ -1,16 +1,27 @@
-apiVersion: route.openshift.io/v1
 kind: Route
+apiVersion: route.openshift.io/v1
 metadata:
+  name: aram-api
+  namespace: aram-machine
   labels:
-    app: welcome-php
-    app.kubernetes.io/instance: myapp
-  name: welcome-php
-  namespace: foobar
+    app: aram-api
+    app.kubernetes.io/component: aram-api
+    app.kubernetes.io/instance: aram-api
+    app.kubernetes.io/name: aram-api
+    app.kubernetes.io/part-of: aram-machine-backend
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+  annotations:
+    openshift.io/host.generated: 'true'
 spec:
-  port:
-    targetPort: 8080
+  host: aram-api-aram-machine.apps.okd.homie.estate
   to:
     kind: Service
-    name: welcome-php
+    name: aram-api
     weight: 100
-status: {}
+  port:
+    targetPort: 3010-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
