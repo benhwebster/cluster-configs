@@ -39,7 +39,7 @@ controller:
   name: csi-nfs-controller
   replicas: 1
   runOnMaster: true
-  runOnControlPlane: true
+#  runOnControlPlane: true
   livenessProbe:
     healthPort: 29652
   logLevel: 5
@@ -85,7 +85,8 @@ node:
   livenessProbe:
     healthPort: 29653
   affinity: {}
-  nodeSelector: {}
+  nodeSelector: 
+    node-role.kubernetes.io/master: ''
   tolerations:
     - operator: "Exists"
   resources:
