@@ -18,6 +18,11 @@ spec:
   defaultCertificate:
     name: internal-ingress-wildcard-cert
   httpCompression: {}
+  logging:
+    access:
+      destination:
+        type: Container
+      logEmptyRequests: Log
   httpEmptyRequestsPolicy: Respond
   httpErrorCodePages:
     name: ''
