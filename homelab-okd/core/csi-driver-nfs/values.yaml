@@ -85,6 +85,7 @@ node:
   livenessProbe:
     healthPort: 29653
   affinity: {}
+  # in sno the only node is a master
   nodeSelector: 
     node-role.kubernetes.io/master: ''
   tolerations:
