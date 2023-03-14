@@ -39,7 +39,8 @@ spec:
     spec:
       volumes:
         - name: postgresql-data
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: postgresql-data
       containers:
         - resources:
             limits:
