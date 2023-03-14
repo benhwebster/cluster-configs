@@ -40,7 +40,7 @@ spec:
       volumes:
         - name: postgresql-data
           persistentVolumeClaim:
-            claimName: postgresql-data
+            claimName: postgres
       containers:
         - resources:
             limits:
