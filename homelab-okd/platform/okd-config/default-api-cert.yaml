@@ -6,11 +6,11 @@ metadata:
   labels:
     issuer-env: prod
     solver: cloudflare
-  name: okd-api-certificate
+  name: lab-api-certificate
   namespace: openshift-config
 spec:
   dnsNames:
-    - api.okd.homie.estate
+    - api.lab.homie.estate
   duration: 2160h0m0s
   issuerRef:
     group: cert-manager.io
@@ -21,7 +21,7 @@ spec:
     encoding: PKCS1
     size: 2048
   renewBefore: 360h0m0s
-  secretName: okd-api-cert
+  secretName: lab-api-cert
   subject:
     organizations:
       - Homies

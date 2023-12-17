@@ -20,6 +20,6 @@ spec:
   servingCerts:
     namedCertificates:
     - names:
-      - api.okd.homie.estate
+      - api.lab.homie.estate
       servingCertificate:
-        name: okd-api-cert
+        name: lab-api-cert

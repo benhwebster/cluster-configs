@@ -8,7 +8,7 @@ spec:
     clientCA:
       name: ''
     clientCertificatePolicy: ''
-  domain: apps.internal.okd.homie.estate
+  domain: apps.internal.lab.homie.estate
   endpointPublishingStrategy:
     type: HostNetwork
     hostNetwork:
