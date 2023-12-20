@@ -18,6 +18,9 @@ spec:
   defaultCertificate:
     name: internal-ingress-wildcard-cert
   httpCompression: {}
+  routeSelector:
+    matchLabels:
+      type: internal
   logging:
     access:
       destination:
