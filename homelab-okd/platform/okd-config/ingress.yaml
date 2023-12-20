@@ -1,0 +1,13 @@
+apiVersion: config.openshift.io/v1
+kind: Ingress
+metadata:
+  name: cluster
+spec:
+  domain: apps.lab.homie.estate
+  componentRoutes:
+    - name: console
+      namespace: openshift-console
+      hostname: console-openshift-console.apps.internal.lab.homie.estate
+  loadBalancer:
+    platform:
+      type: ''

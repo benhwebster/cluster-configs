@@ -8,3 +8,5 @@ resources:
 - internal-router.yaml
 - internal-ingress-wildcard.yaml
 - oauth.yaml
+- ingress.yaml
+- console-route.yaml
