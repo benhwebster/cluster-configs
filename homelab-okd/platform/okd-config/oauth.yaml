@@ -11,7 +11,7 @@ metadata:
 spec:
   identityProviders:
     - github:
-        clientID: e6936d0951a98ee7dfaa
+        clientID: 7e21b48a1e8d613d51a0
         clientSecret:
           name: github-secret
         organizations:
