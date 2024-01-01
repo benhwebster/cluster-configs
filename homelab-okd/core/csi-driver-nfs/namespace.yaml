@@ -1,0 +1,10 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: csi-driver-nfs
+  labels:
+    kubernetes.io/metadata.name: csi-driver-nfs
+  annotations:
+    openshift.io/description: csi-driver-nfs
+    openshift.io/display-name: csi-driver-nfs
+spec: {}
