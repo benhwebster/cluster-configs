@@ -3,3 +3,4 @@ kind: Kustomization
 generators:
 - chartInflator.yaml
 - namespace.yaml
+- clusterrolebinding.yaml
