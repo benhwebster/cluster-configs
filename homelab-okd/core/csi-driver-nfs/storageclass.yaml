@@ -1,7 +1,7 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: valut-nfs-csi
+  name: vault-nfs-csi
 provisioner: nfs.csi.k8s.io
 parameters:
   server: 192.168.20.6
