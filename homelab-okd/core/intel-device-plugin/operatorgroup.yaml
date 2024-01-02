@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: >-
+      GpuDevicePlugin.v1.deviceplugin.intel.com,QatDevicePlugin.v1.deviceplugin.intel.com,SgxDevicePlugin.v1.deviceplugin.intel.com
+  name: intel-device-plugins-operator
+  namespace: intel-device-plugins-operator
+spec:
+  upgradeStrategy: Default
