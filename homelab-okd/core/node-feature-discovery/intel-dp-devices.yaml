@@ -13,7 +13,7 @@ spec:
             class:
               op: In
               value:
-                - 0b40
+                - '0b40'
             device:
               op: In
               value:
@@ -35,11 +35,11 @@ spec:
             class:
               op: In
               value:
-                - 0880
+                - '0880'
             device:
               op: In
               value:
-                - 0b25
+                - '0b25'
             vendor:
               op: In
               value:
@@ -72,7 +72,7 @@ spec:
             device:
               op: In
               value:
-                - 09c4
+                - '09c4'
             vendor:
               op: In
               value:
@@ -87,7 +87,7 @@ spec:
               op: In
               value:
                 - '0300'
-                - 0380
+                - '0380'
             vendor:
               op: In
               value:
@@ -105,11 +105,11 @@ spec:
             class:
               op: In
               value:
-                - 0880
+                - '0880'
             device:
               op: In
               value:
-                - 0cfe
+                - '0cfe'
             vendor:
               op: In
               value:
@@ -138,11 +138,11 @@ spec:
             class:
               op: In
               value:
-                - 0b40
+                - '0b40'
             device:
               op: In
               value:
-                - 37c8
+                - '37c8'
                 - '4940'
                 - '4942'
                 - '4944'
