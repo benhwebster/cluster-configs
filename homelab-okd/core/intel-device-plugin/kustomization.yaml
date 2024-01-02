@@ -6,4 +6,3 @@ resources:
 - subscription.yaml
 - operatorgroup.yaml
 - gpudeviceplugin.yaml
-- intel-dp-devices.yaml

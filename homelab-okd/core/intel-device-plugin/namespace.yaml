@@ -1,0 +1,11 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: intel-device-plugins-operator
+  labels:
+    kubernetes.io/metadata.name: intel-device-plugins-operator
+  annotations:
+    openshift.io/description: ''
+    openshift.io/display-name: intel-device-plugins-operator
+    openshift.io/requester: benhwebster
+spec: {}

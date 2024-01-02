@@ -5,3 +5,4 @@ resources:
 - openshift-nfd-sub.yaml
 - nfd-instance.yaml
 - operatorgroup.yaml
+- intel-dp-devices.yaml
