@@ -6,7 +6,7 @@ helmCharts:
   releaseName: csi-driver-nfs
   namespace: csi-driver-nfs
   valuesFile: values.yaml
-  version: 4.5.0
+  version: 4.6.0
 resources:
 - namespace.yaml
 - clusterrolebinding.yaml
